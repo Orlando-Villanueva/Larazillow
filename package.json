@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "fix:eslint" : "eslint --ext .js, .vue ressources/js/ --fix"
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^4.0.0",
