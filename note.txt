@@ -1,0 +1,5 @@
+for front-end (vite)
+npm run dev
+
+for backend (laravel)
+php artisan serve
