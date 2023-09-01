@@ -20,7 +20,7 @@ http://localhost:8080/
 And create your database
 
 <h1>Issues</h1>
-If you run into a PDOException error when running 
+If you run into a PDOException error when running database
 
 ```
 php artisan db:show
