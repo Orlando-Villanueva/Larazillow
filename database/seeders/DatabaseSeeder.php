@@ -16,7 +16,5 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Listing::factory(20)->create();
-
-
     }
 }
