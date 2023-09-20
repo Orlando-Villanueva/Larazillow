@@ -1,14 +1,10 @@
 <template>
-  <Link href="/">Home</Link>&nbsp;
-  <Link href="/show">Show Page</Link>
-  <div>The page with the timer {{ timer }}</div>
+  <Link href="/listing">Home</Link>&nbsp;
+  <Link href="/listing/create">Create</Link>
   <slot>Loading...</slot>
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/vue3'
-import { ref } from 'vue'
+import {Link} from '@inertiajs/vue3'
 
-const timer = ref(0)
-setInterval(() => timer.value++, 1000)
 </script>
