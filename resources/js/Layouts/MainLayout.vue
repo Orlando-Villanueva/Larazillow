@@ -1,9 +1,10 @@
 <template>
-  <Link href="/listing">Home</Link>&nbsp;
-  <Link href="/listing/create">Create</Link>
-  <div v-if="flashSuccess" class="success">
-    {{ flashSuccess }}
+  <div style="margin-bottom: 10px;">
+    <Link href="/listing">Listings</Link>&nbsp;
+    <Link href="/listing/create">New Listing</Link>
+    <div v-if="flashSuccess" class="success" v-text="flashSuccess" />
   </div>
+
   <slot>Loading...</slot>
 </template>
 

@@ -34,7 +34,6 @@ class ListingController extends Controller
             'street_number' => ['required', 'string', 'max:255', 'min:1'],
             'street' => ['required', 'string', 'max:255'],
             'price' => ['required', 'integer', 'max:200000000', 'min:1'],
-
         ])
         );
 
@@ -52,18 +51,40 @@ class ListingController extends Controller
         );
     }
 
-    public function edit($id)
+    public function edit(Listing $listing)
     {
-        //
+        return inertia(
+            'Listing/Edit',
+            [
+                'listing' => $listing
+            ]
+        );
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Listing $listing)
     {
-        //
+        $listing->update(
+            $request->validate([
+                'beds' => ['required', 'integer', 'max:20', 'min:0'],
+                'baths' => ['required', 'integer', 'max:20', 'min:0'],
+                'area' => ['required', 'integer', 'max:1500', 'min:15'],
+                'city' => ['required', 'string', 'max:255'],
+                'code' => ['required', 'string', 'max:255'],
+                'street_number' => ['required', 'string', 'max:255', 'min:1'],
+                'street' => ['required', 'string', 'max:255'],
+                'price' => ['required', 'integer', 'max:200000000', 'min:1'],
+
+            ])
+        );
+
+        return redirect()->route('listing.index')
+            ->with('success', 'Listing updated successfully.');
     }
 
-    public function destroy($id)
+    public function destroy(Listing $listing)
     {
-        //
+        $listing->delete();
+
+        return redirect()->back()->with('success', 'Listing deleted successfully.');
     }
 }
