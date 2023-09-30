@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class ListingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return inertia(
@@ -23,32 +18,29 @@ class ListingController extends Controller
         );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return inertia('Listing/Create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        Listing::create($request->validate([
+            'beds' => ['required', 'integer', 'max:20', 'min:0'],
+            'baths' => ['required', 'integer', 'max:20', 'min:0'],
+            'area' => ['required', 'integer', 'max:1500', 'min:15'],
+            'city' => ['required', 'string', 'max:255'],
+            'code' => ['required', 'string', 'max:255'],
+            'street_number' => ['required', 'string', 'max:255', 'min:1'],
+            'street' => ['required', 'string', 'max:255'],
+            'price' => ['required', 'integer', 'max:200000000', 'min:1'],
+        ])
+        );
+
+        return redirect()->route('listing.index')
+            ->with('success', 'Listing created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function show(Listing $listing)
     {
         return inertia(
@@ -59,37 +51,40 @@ class ListingController extends Controller
         );
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit(Listing $listing)
     {
-        //
+        return inertia(
+            'Listing/Edit',
+            [
+                'listing' => $listing
+            ]
+        );
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, Listing $listing)
     {
-        //
+        $listing->update(
+            $request->validate([
+                'beds' => ['required', 'integer', 'max:20', 'min:0'],
+                'baths' => ['required', 'integer', 'max:20', 'min:0'],
+                'area' => ['required', 'integer', 'max:1500', 'min:15'],
+                'city' => ['required', 'string', 'max:255'],
+                'code' => ['required', 'string', 'max:255'],
+                'street_number' => ['required', 'string', 'max:255', 'min:1'],
+                'street' => ['required', 'string', 'max:255'],
+                'price' => ['required', 'integer', 'max:200000000', 'min:1'],
+
+            ])
+        );
+
+        return redirect()->route('listing.index')
+            ->with('success', 'Listing updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Listing $listing)
     {
-        //
+        $listing->delete();
+
+        return redirect()->back()->with('success', 'Listing deleted successfully.');
     }
 }
