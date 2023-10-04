@@ -12,7 +12,7 @@
           <div>
             <Link
               href="/listing/create"
-              class="bg-indigo-600 p-2 border-0 rounded-md hover:bg-indigo-500 font-medium"
+              class="bg-indigo-600 text-white p-2 border-0 rounded-md hover:bg-indigo-500 font-medium"
             >
               + New Listing
             </Link>
