@@ -3,7 +3,9 @@
     <Box v-for="listing in listings" :key="listing.id">
       <div>
         <Link :href="`/listing/${listing.id}`">
-          <ListingAddress :listing="listing" />
+          <Price :price="listing.price" class="text-2xl font-bold" />
+          <ListingInfo :listing="listing" class="text-lg" />
+          <ListingAddress :listing="listing" class="text-gray-500" />
         </Link>
       </div>
       <div class="actions">
@@ -18,6 +20,8 @@
 import {Link} from '@inertiajs/vue3'
 import ListingAddress from '@/Components/ListingAddress.vue'
 import Box from '@/Components/UI/Box.vue'
+import ListingInfo from '@/Components/ListingInfo.vue'
+import Price from '@/Components/Price.vue'
 
 defineProps({
   listings: Array,
