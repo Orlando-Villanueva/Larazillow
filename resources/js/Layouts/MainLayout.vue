@@ -12,7 +12,7 @@
           <div>
             <Link
               href="/listing/create"
-              class="bg-indigo-600 text-white p-2 border-0 rounded-md hover:bg-indigo-500 font-medium"
+              class="btn-primary"
             >
               + New Listing
             </Link>
@@ -20,7 +20,6 @@
         </nav>
       </div>
     </header>
-
     <main>
       <div class="container mx-auto p-4">
         <div
