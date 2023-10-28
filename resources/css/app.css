@@ -11,6 +11,10 @@
         @apply block w-full p-2 rounded-md border shadow-sm border-gray-300 text-gray-500;
     }
 
+    .input-error {
+        @apply text-sm text-red-500 dark:text-red-400;
+    }
+
     .btn-primary {
         @apply bg-indigo-600 text-white p-2 border-0 rounded-md hover:bg-indigo-500 font-medium;
     }

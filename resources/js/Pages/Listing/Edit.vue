@@ -5,7 +5,7 @@
         <label class="label">Beds</label>
         <input v-model.number="form.beds" type="text" class="input" />
         <div
-          v-if="form.errors.beds" class="text-red-500"
+          v-if="form.errors.beds" class="input-error"
           v-text="form.errors.beds"
         />
       </div>
@@ -14,16 +14,16 @@
         <label class="label">Baths</label>
         <input v-model.number="form.baths" type="text" class="input" />
         <div
-          v-if="form.errors.baths" class="text-red-500"
+          v-if="form.errors.baths" class="input-error"
           v-text="form.errors.baths"
         />
       </div>
 
       <div class="col-span-6 sm:col-span-2">
-        <label class="label&quot;">Area</label>
+        <label class="label">Area</label>
         <input v-model.number="form.area" type="text" class="input" />
         <div
-          v-if="form.errors.area" class="text-red-500"
+          v-if="form.errors.area" class="input-error"
           v-text="form.errors.area"
         />
       </div>
@@ -32,7 +32,7 @@
         <label class="label">City</label>
         <input v-model="form.city" type="text" class="input" />
         <div
-          v-if="form.errors.city" class="text-red-500"
+          v-if="form.errors.city" class="input-error"
           v-text="form.errors.city"
         />
       </div>
@@ -41,7 +41,7 @@
         <label class="label">Post Code</label>
         <input v-model="form.code" type="text" class="input" />
         <div
-          v-if="form.errors.code" class="text-red-500"
+          v-if="form.errors.code" class="input-error"
           v-text="form.errors.code"
         />
       </div>
@@ -50,16 +50,16 @@
         <label class="label">Street</label>
         <input v-model="form.street" type="text" class="input" />
         <div
-          v-if="form.errors.street" class="text-red-500"
+          v-if="form.errors.street" class="input-error"
           v-text="form.errors.street"
         />
       </div>
 
       <div class="col-span-6 sm:col-span-2">
-        <label class="label&quot;">Street Number</label>
+        <label class="label">Street Number</label>
         <input v-model.number="form.street_number" type="text" class="input" />
         <div
-          v-if="form.errors.street_number" class="text-red-500"
+          v-if="form.errors.street_number" class="input-error"
           v-text="form.errors.street_number"
         />
       </div>
@@ -68,7 +68,7 @@
         <label class="label">Price</label>
         <input v-model.number="form.price" type="text" class="input" />
         <div
-          v-if="form.errors.price" class="text-red-500"
+          v-if="form.errors.price" class="input-error"
           v-text="form.errors.price"
         />
       </div>
@@ -81,7 +81,7 @@
 </template>
 
 <script setup>
-import {Link, useForm} from '@inertiajs/vue3'
+import {useForm} from '@inertiajs/vue3'
 
 const props = defineProps({
   listing: Object,
