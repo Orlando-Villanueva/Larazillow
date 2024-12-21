@@ -7,7 +7,7 @@ php artisan serve
 ```
 Run Vue
 ```
-php artisan serve
+npm run dev
 ```
 Run docker
 ```
